@@ -1,0 +1,61 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Lato, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Bar */
+
+nav {
+  background-color: #111;
+  color: white;
+  padding: 20px 50px;
+  /* 20px is the top and bottom padding
+    50px is the left and right padding */
+}
+
+.navTop {
+  display: flex;
+  align-items: center; /* Vertically centers the children inside the container*/
+  justify-content: space-between; /* Pushes first child to the left, last child to the right, with space in between*/
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: grey;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.searchInput {
+  border: none;
+  background-color: transparent;
+}
+
+.searchInput::placeholder {
+  color: lightgrey; /*It changes the color of the placeholder text inside an input field with the class .searchInpu*/
+}
+
+.limitedOffer {
+  font-size: 20px;
+  border-bottom: 2px solid green;
+  cursor: pointer;
+}
+
+.navBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem {
+  margin-right: 50px;
+  cursor: pointer;
+  color: lightgray;
+  font-weight: 400;
+}
