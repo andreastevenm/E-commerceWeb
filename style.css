@@ -13,7 +13,7 @@ body {
 nav {
   background-color: #111;
   color: white;
-  padding: 20px 50px;
+  padding: 10px 50px;
   /* 20px is the top and bottom padding
     50px is the left and right padding */
 }
@@ -58,4 +58,149 @@ nav {
   cursor: pointer;
   color: lightgray;
   font-weight: 400;
+}
+
+/* Slider Bar */
+.slider {
+  background: url("https://images.unsplash.com/photo-1675445991060-14c7f43d8fd6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  /* Sets the background image of the .slider element using a high-resolution Unsplash photo */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  /* Clips the bottom edge of the element into a custom slanted shape
+     - (0 0) → top-left
+     - (100% 0) → top-right
+     - (100% 100%) → bottom-right
+     - (0 85%) → 85% down from the top at the left side (creates slant)
+     This is often used for modern web designs with angled sections */
+  overflow: hidden;
+  /* Hides anything inside the .slider that goes outside its clipped shape */
+}
+
+.sliderWrapper {
+  display: flex;
+  width: 500vw; /* Sets the total width to 500% of the viewport width (100vw x 5 slides)  — allows 5 full-screen slides side by side */
+  transition: all 1s ease-in-out; /* Smoothly animates all changes (like transform or margin) over 1.5 seconds - 'ease-in-out' makes the animation start and end slowly */
+}
+
+.sliderItem {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* "I stay in my place, but now my children can use me as a guide for positioning." 
+  Imagine this:
+You have a box (.sliderItem), and inside that box, you want to put text in the bottom corner.
+
+To do that, you make the text use position: absolute;, but the browser needs to know:
+
+“Where should I place this text?”
+
+If you don’t tell it where, the browser uses the whole screen as a reference.
+
+But if you write position: relative; on the parent box, the browser says:
+
+“Ah! I’ll use this box as the reference.”*/
+}
+
+.sliderBg {
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  position: absolute;
+  /* “Place this element exactly where I tell you — not in the normal layout flow.”
+  position: relative	Parent becomes a "frame" for positioning children
+  position: absolute	Child can be placed anywhere inside that frame 
+  It lets you move the element freely (using top, left, right, bottom)
+  It will be placed on top of other elements if needed
+  But it needs a parent with position: relative to know where to position*/
+}
+
+.sliderImg {
+  z-index: 1;
+}
+
+.sliderTitle {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  /* Because .sliderTitle uses **position: absolute**, the browser lets you move it around freely inside its parent.
+  So:
+  top: 10%; → moves the element 10% down from the top edge of its parent
+  right: 10%; → moves the element 10% inward from the right edge of its parent */
+  font-size: 70px;
+  font-weight: 900;
+  text-align: center;
+  color: black;
+  z-index: 1;
+}
+
+.sliderPrice {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  background: black;
+  z-index: 1;
+}
+
+.buyButton {
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  font-size: 30px;
+  font-weight: 600; /*the boldness of the text*/
+  color: white;
+  border: 1px solid black;
+  background: black;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.buyButton:hover {
+  background-color: whitesmoke;
+  color: black;
+  transition: 0.5s;
+}
+
+/* background pic of each shoes */
+.sliderItem:nth-child(1) .sliderBg {
+  background-color: cornflowerblue;
+}
+
+.sliderItem:nth-child(2) .sliderBg {
+  background-color: rebeccapurple;
+}
+.sliderItem:nth-child(3) .sliderBg {
+  background-color: teal;
+}
+
+.sliderItem:nth-child(4) .sliderBg {
+  background-color: blanchedalmond;
+}
+
+.sliderItem:nth-child(5) .sliderBg {
+  background-color: rgb(124, 115, 80);
+}
+
+/* background color of the price */
+.sliderItem:nth-child(1) .sliderPrice {
+  background-color: cornflowerblue;
+}
+.sliderItem:nth-child(2) .sliderPrice {
+  background-color: rebeccapurple;
+}
+.sliderItem:nth-child(3) .sliderPrice {
+  background-color: teal;
+}
+
+.sliderItem:nth-child(4) .sliderPrice {
+  background-color: blanchedalmond;
+}
+
+.sliderItem:nth-child(5) .sliderPrice {
+  background-color: rgb(124, 115, 80);
 }
